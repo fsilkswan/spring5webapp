@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public final class Book
@@ -24,7 +25,8 @@ public final class Book
 
     private String isbn;
 
-    private String publisher;
+    @OneToOne
+    private Publisher publisher;
 
     private String title;
 
@@ -33,7 +35,7 @@ public final class Book
         authors = new HashSet<>();
     }
 
-    public Book(final String title, final String isbn, final String publisher)
+    public Book(final String title, final String isbn, final Publisher publisher)
     {
         this();
 
@@ -42,7 +44,7 @@ public final class Book
         this.publisher = publisher;
     }
 
-    public Book(final String title, final String isbn, final String publisher, final Set<Author> authors)
+    public Book(final String title, final String isbn, final Publisher publisher, final Set<Author> authors)
     {
         this(title, isbn, publisher);
 
@@ -86,7 +88,7 @@ public final class Book
         return isbn;
     }
 
-    public String getPublisher()
+    public Publisher getPublisher()
     {
         return publisher;
     }
@@ -122,7 +124,7 @@ public final class Book
         this.isbn = isbn;
     }
 
-    public void setPublisher(final String publisher)
+    public void setPublisher(final Publisher publisher)
     {
         this.publisher = publisher;
     }
