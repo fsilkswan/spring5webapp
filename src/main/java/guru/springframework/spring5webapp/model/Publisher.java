@@ -19,6 +19,10 @@ public final class Publisher
     private String state;
     private int    zipCode;
 
+    public Publisher()
+    {
+    }
+
     public Publisher(final String name, final String addressLineOne, final int zipCode, final String city, final String state)
     {
         this.name = name;

@@ -39,7 +39,7 @@ public class DevBootstrap
 
         // Eric:
         final Author eric = new Author("Eric", "Evans");
-        final Book ddd = new Book("Domain Driven Desing", "1234", harperCollins);
+        final Book ddd = new Book("Domain Driven Design", "1234", harperCollins);
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
 
