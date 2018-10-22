@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<title>Spring Framework Guru</title>
+</head>
+
+<body>
+	<h1>Author List</h1>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Books</th>
+		</tr>
+		<tr th:each="author : ${authors}">
+			<td th:text="${author.id}">123</td>
+			<td th:text="${author.firstName}">J.R.R.</td>
+			<td th:text="${author.lastName}">Tolkien</td>
+			<td>
+				<ul th:if="${not #lists.isEmpty(author.books)}">
+					<li th:each="currAuthorBook,iterStat : ${author.books}" th:text="${currAuthorBook.title}" th:class="${iterStat.odd} ? 'odd'">The Lord of the Rings</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
